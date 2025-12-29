@@ -1,8 +1,9 @@
 -- keybindings/navigation.lua
 --
 -- Navigation through history and buffers
+-- Russian layout handled by langmapper.nvim
 
-local map_multilang = require("keybindings.utils").map_multilang
+local map = vim.keymap.set
 
 -- Built-in Vim bindings for jump history:
 -- Ctrl+O - Go back (in jump history)
@@ -10,8 +11,8 @@ local map_multilang = require("keybindings.utils").map_multilang
 
 -- Buffer navigation (direct keys, LazyVim style)
 -- H/L override vim's "top/bottom of screen" — rarely used
-vim.keymap.set("n", "H", ":bprevious<CR>", { desc = "Previous buffer", silent = true })
-vim.keymap.set("n", "L", ":bnext<CR>", { desc = "Next buffer", silent = true })
+map("n", "H", ":bprevious<CR>", { desc = "Previous buffer", silent = true })
+map("n", "L", ":bnext<CR>", { desc = "Next buffer", silent = true })
 
 -- Buffer close via leader
-map_multilang("n", "<leader>bd", ":bdelete<CR>", { desc = "Close buffer" })
+map("n", "<leader>bd", ":bdelete<CR>", { desc = "Close buffer" })

@@ -1,13 +1,14 @@
 -- keybindings/telescope.lua
 --
 -- Telescope and project.nvim keybindings
+-- Russian layout handled by langmapper.nvim
 
-local map_multilang = require("keybindings.utils").map_multilang
+local map = vim.keymap.set
 
 -- File finding
-map_multilang("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find File" })
-map_multilang("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find Text" })
-map_multilang("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Open Buffers" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find file" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find text" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffer" })
 
 -- Project management
-map_multilang("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Open Projects" })
+map("n", "<leader>fp", "<cmd>Telescope projects<cr>", { desc = "Find project" })
