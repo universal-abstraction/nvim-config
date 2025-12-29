@@ -1,6 +1,9 @@
+-- 0. Set leader key BEFORE loading any plugins
+vim.g.mapleader = " "
+
 -- 1. Load base settings (loaded first)
 require("user.options")
-require("user.keymaps")
+require("user.autocommands")
 require("user.spell")
 
 -- 2. Setup Lazy.nvim plugin manager
@@ -25,7 +28,14 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
   install = { colorscheme = { "tokyonight" } },
-  checker = { enabled = true, notifu = false }, -- auto update plugins
+  checker = {
+    enabled = true,   -- Automatic update checking
+    notify = false,   -- No notifications (check via :Lazy)
+    frequency = 43200, -- Check every 12 hours (in seconds)
+  },
   rocks = { enabled = false },  -- disable luarocks support
 })
+
+-- 4. Load keybindings (after lazy.nvim)
+require("keybindings")
 

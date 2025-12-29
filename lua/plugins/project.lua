@@ -31,9 +31,4 @@ return {
     -- Integrate with Telescope
     require("telescope").load_extension("projects")
   end,
-
-  -- Keybindings
-  keys = {
-    { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Open Projects" },
-  },
 }

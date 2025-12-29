@@ -28,4 +28,7 @@ lazy-lock.json
 *~
 
 ## custom spelling
-/spell/
+/spell/*
+
+## Claude code
+CLAUDE.md
