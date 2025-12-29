@@ -6,7 +6,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  event = "VeryLazy",  -- Загружать рано, чтобы биндинги работали
+  event = "VeryLazy",  -- Load early so keybindings work
 
   -- Plugin options
   opts = {},

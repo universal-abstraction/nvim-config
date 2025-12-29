@@ -1,6 +1,7 @@
 -- user/autocommands.lua
 --
 -- Autocommands for various file types and events
+-- Note: Spell checking is enabled globally in user/spell.lua
 
 -- Markdown: word wrapping
 vim.api.nvim_create_autocmd("FileType", {
@@ -12,29 +13,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Spell checking for text files
+-- Disable spell checking in special buffers
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "gitcommit", "text", "plaintex" },
-  callback = function()
-    vim.opt_local.spell = true
-  end,
-})
-
--- Additional check for .txt and .md files on open
-vim.api.nvim_create_autocmd("BufReadPost", {
-  callback = function()
-    local ext = vim.fn.expand("%:e")
-    if ext == "txt" or ext == "md" then
-      vim.opt_local.spell = true
-    end
-  end,
-})
-
--- Disable spell checking in Telescope UI
-vim.api.nvim_create_augroup('telescope_spell', { clear = true })
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'telescope_spell',
-  pattern = { 'TelescopePrompt', 'TelescopeResults' },
+  pattern = { "TelescopePrompt", "TelescopeResults", "lazy", "mason", "help" },
   callback = function()
     vim.opt_local.spell = false
   end,

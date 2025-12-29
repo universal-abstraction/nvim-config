@@ -44,4 +44,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- Apply highlight immediately after loading
-vim.cmd("doautocmd ColorScheme")
+vim.cmd.doautocmd("ColorScheme")

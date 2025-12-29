@@ -5,7 +5,8 @@
 
 return {
   "ahmedkhalf/project.nvim",
-  event = "VimEnter",
+  dependencies = { "nvim-telescope/telescope.nvim" },
+  event = "VeryLazy",  -- Must load after telescope
 
   -- Plugin options
   opts = {

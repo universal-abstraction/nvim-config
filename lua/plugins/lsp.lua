@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    lazy = false,  -- Load immediately to ensure LSP attaches to buffers
     dependencies = {
       "mason-org/mason.nvim",
       "mason-org/mason-lspconfig.nvim",
@@ -10,8 +11,11 @@ return {
       local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
 
-      -- LSP capabilities for nvim-cmp integration
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- LSP capabilities for nvim-cmp integration (with fallback)
+      local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+      local capabilities = has_cmp
+        and cmp_nvim_lsp.default_capabilities()
+        or vim.lsp.protocol.make_client_capabilities()
 
       -- Common on_attach function for all LSP servers
       local function on_attach(client, bufnr)

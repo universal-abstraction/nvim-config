@@ -1,14 +1,13 @@
 -- lua/plugins/venv-selector.lua
+--
+-- Python virtual environment selector
 return {
   "linux-cultist/venv-selector.nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
-    { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
+    "nvim-telescope/telescope.nvim",  -- Use main telescope config (no branch conflict)
   },
-  ft = "python", -- Load when opening Python files
-   keys = {
-    { "<leader>v", "<cmd>VenvSelect<cr>" }, -- Open picker on keymap
-  },
+  ft = "python",  -- Load when opening Python files
   opts = {
     -- Automatically select found venv
     auto_refresh = true,

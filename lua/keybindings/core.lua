@@ -14,3 +14,6 @@ map_multilang("n", "<leader>hh", ":nohlsearch<CR>", { desc = "Hide search highli
 
 -- Plugin management
 map_multilang("n", "<leader>lz", ":Lazy<cr>", { desc = "Open Lazy" })
+
+-- Python
+map_multilang("n", "<leader>vs", "<cmd>VenvSelect<cr>", { desc = "Select Python venv" })
