@@ -4,14 +4,12 @@
 -- This file sets up project-specific settings and integrates with Telescope.
 
 return {
-  "ahmedkhalf/project.nvim",
+  "DrKJeff16/project.nvim",  -- Maintained fork (original is abandoned)
   dependencies = { "nvim-telescope/telescope.nvim" },
   event = "VeryLazy",  -- Must load after telescope
 
-  -- Plugin options
   opts = {
-    -- Automatically detect project root
-    detection_methods = { "lsp", "pattern" },
+    use_lsp = true,  -- Use LSP for project detection
     patterns = {
       ".git",
       "Cargo.toml",
@@ -26,10 +24,7 @@ return {
 
   -- Setup and integration
   config = function(_, opts)
-    -- Project setup
-    require("project_nvim").setup(opts)
-
-    -- Integrate with Telescope
+    require("project").setup(opts)
     require("telescope").load_extension("projects")
   end,
 }
