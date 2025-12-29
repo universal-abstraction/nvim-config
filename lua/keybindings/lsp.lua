@@ -39,13 +39,12 @@ function M.setup(client, bufnr)
 
   -- === Code actions (with Russian keyboard support) ===
   map_buf_multilang("n", "<leader>ca", vim.lsp.buf.code_action, opts)  -- Code Actions
-  map_buf_multilang("n", "<leader>rn", vim.lsp.buf.rename, opts)       -- Rename symbol
+  map_buf_multilang("n", "<leader>cr", vim.lsp.buf.rename, opts)       -- Rename symbol
 
   -- === Additional LSP functions (with Russian keyboard support) ===
   map_buf_multilang("n", "<leader>ld", vim.lsp.buf.declaration, opts)      -- Declaration (for C)
   map_buf_multilang("n", "<leader>lt", vim.lsp.buf.type_definition, opts)  -- Type Definition
   map_buf_multilang("n", "<leader>lh", vim.lsp.buf.signature_help, opts)   -- Signature help
-  map_buf_multilang("n", "<leader>lf", vim.lsp.buf.format, opts)           -- Format code
 end
 
 return M

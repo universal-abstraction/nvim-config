@@ -9,11 +9,8 @@ map_multilang("n", "<leader>ww", ":w<cr>", { desc = "Save" })
 map_multilang("n", "<leader>qq", ":q<CR>", { desc = "Close" })
 map_multilang("n", "<leader>wq", ":wq<CR>", { desc = "Save & Close" })
 
--- UI
-map_multilang("n", "<leader>hh", ":nohlsearch<CR>", { desc = "Hide search highlight" })
-
 -- Plugin management
-map_multilang("n", "<leader>lz", ":Lazy<cr>", { desc = "Open Lazy" })
+map_multilang("n", "<leader>pl", ":Lazy<cr>", { desc = "Open Lazy" })
 
 -- Python
 map_multilang("n", "<leader>vs", "<cmd>VenvSelect<cr>", { desc = "Select Python venv" })

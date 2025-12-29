@@ -12,4 +12,8 @@ require("keybindings.telescope")
 -- Load navigation keybindings
 require("keybindings.navigation")
 
--- LSP keybindings are loaded automatically via on_attach in lua/plugins/lsp.lua
+-- Plugin-specific keybindings loaded via plugin configs:
+-- LSP: lua/keybindings/lsp.lua (via LspAttach autocommand)
+-- Git: lua/keybindings/git.lua (via gitsigns on_attach)
+-- Flash: lua/keybindings/flash.lua (via flash config)
+-- Format: lua/keybindings/format.lua (via conform config)

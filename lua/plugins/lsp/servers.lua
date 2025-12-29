@@ -3,11 +3,11 @@
 -- LSP server configurations using Neovim 0.11+ native API
 -- Keybindings are set via LspAttach in lua/user/autocommands.lua
 
--- Add nvim-cmp capabilities to all LSP servers
-local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if has_cmp then
+-- Add blink.cmp capabilities to all LSP servers
+local has_blink, blink = pcall(require, "blink.cmp")
+if has_blink then
   vim.lsp.config("*", {
-    capabilities = cmp_nvim_lsp.default_capabilities(),
+    capabilities = blink.get_lsp_capabilities(),
   })
 end
 
