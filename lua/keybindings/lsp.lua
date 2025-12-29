@@ -24,27 +24,29 @@ local function map_buf_multilang(mode, lhs, rhs, opts)
 end
 
 function M.setup(client, bufnr)
-  local opts = { noremap = true, silent = true, buffer = bufnr }
+  local function opts(desc)
+    return { noremap = true, silent = true, buffer = bufnr, desc = desc }
+  end
 
   -- === Core navigation (standard Vim-style, no Russian needed) ===
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)        -- Go to Definition
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)        -- Go to References
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)    -- Go to Implementation
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)              -- Hover documentation
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("Go to references"))
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("Hover documentation"))
 
   -- === Diagnostics (standard Vim-style) ===
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)      -- Next diagnostic
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)      -- Previous diagnostic
-  vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)     -- Show diagnostic
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Next diagnostic"))
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Previous diagnostic"))
+  vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts("Show diagnostic"))
 
   -- === Code actions (with Russian keyboard support) ===
-  map_buf_multilang("n", "<leader>ca", vim.lsp.buf.code_action, opts)  -- Code Actions
-  map_buf_multilang("n", "<leader>cr", vim.lsp.buf.rename, opts)       -- Rename symbol
+  map_buf_multilang("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
+  map_buf_multilang("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename symbol"))
 
   -- === Additional LSP functions (with Russian keyboard support) ===
-  map_buf_multilang("n", "<leader>ld", vim.lsp.buf.declaration, opts)      -- Declaration (for C)
-  map_buf_multilang("n", "<leader>lt", vim.lsp.buf.type_definition, opts)  -- Type Definition
-  map_buf_multilang("n", "<leader>lh", vim.lsp.buf.signature_help, opts)   -- Signature help
+  map_buf_multilang("n", "<leader>ld", vim.lsp.buf.declaration, opts("Declaration"))
+  map_buf_multilang("n", "<leader>lt", vim.lsp.buf.type_definition, opts("Type definition"))
+  map_buf_multilang("n", "<leader>lh", vim.lsp.buf.signature_help, opts("Signature help"))
 end
 
 return M
