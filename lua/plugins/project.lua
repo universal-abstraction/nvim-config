@@ -9,7 +9,7 @@ return {
   event = "VeryLazy",  -- Must load after telescope
 
   opts = {
-    use_lsp = true,  -- Use LSP for project detection
+    lsp = { enabled = true },  -- Use LSP for project detection
     patterns = {
       ".git",
       "Cargo.toml",
