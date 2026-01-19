@@ -1,7 +1,6 @@
 -- keybindings/navigation.lua
 --
 -- Navigation through history and buffers
--- Russian layout handled by langmapper.nvim
 
 local map = vim.keymap.set
 

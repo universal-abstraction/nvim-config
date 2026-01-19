@@ -1,7 +1,6 @@
 -- keybindings/core.lua
 --
 -- Core editor keybindings (not plugin-specific)
--- Russian layout handled by langmapper.nvim
 
 local map = vim.keymap.set
 

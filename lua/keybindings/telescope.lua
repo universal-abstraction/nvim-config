@@ -1,7 +1,6 @@
 -- keybindings/telescope.lua
 --
 -- Telescope and project.nvim keybindings
--- Russian layout handled by langmapper.nvim
 
 local map = vim.keymap.set
 
