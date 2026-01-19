@@ -1,7 +1,6 @@
 -- keybindings/lsp.lua
 --
 -- LSP keybindings, used via on_attach callback
--- Russian layout handled by langmapper.nvim
 
 local M = {}
 
@@ -11,11 +10,13 @@ function M.setup(client, bufnr)
   end
 
   local map = vim.keymap.set
+  local telescope = require("telescope.builtin")
 
   -- === Core navigation (g-prefix, standard) ===
-  map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
-  map("n", "gr", vim.lsp.buf.references, opts("Go to references"))
-  map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
+  -- Using Telescope for better multi-result handling
+  map("n", "gd", telescope.lsp_definitions, opts("Go to definition"))
+  map("n", "gr", telescope.lsp_references, opts("Go to references"))
+  map("n", "gi", telescope.lsp_implementations, opts("Go to implementation"))
   map("n", "K", vim.lsp.buf.hover, opts("Hover documentation"))
 
   -- === Diagnostics ===
@@ -28,8 +29,8 @@ function M.setup(client, bufnr)
   map("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename symbol"))
 
   -- === Additional LSP functions ===
+  map("n", "gt", telescope.lsp_type_definitions, opts("Go to type definition"))
   map("n", "<leader>ld", vim.lsp.buf.declaration, opts("Declaration"))
-  map("n", "<leader>lt", vim.lsp.buf.type_definition, opts("Type definition"))
   map("n", "<leader>lh", vim.lsp.buf.signature_help, opts("Signature help"))
 end
 
