@@ -17,7 +17,7 @@ return {
 			cpp = { "clang-format" },
 			json = { "jq" },
 			yaml = { "yamlfmt" },
-			markdown = { "prettier" },
+			markdown = { "prettierd" },
 		},
 
 		format_on_save = function(bufnr)
