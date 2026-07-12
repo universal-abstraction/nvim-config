@@ -5,6 +5,7 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
+	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
@@ -29,6 +30,7 @@ return {
 				hide_gitignored = true,
 			},
 			use_libuv_file_watcher = true,
+			hijack_netrw_behavior = "open_current",
 		},
 		window = {
 			width = 34,

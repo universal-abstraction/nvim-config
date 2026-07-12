@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- 0. Set leader key BEFORE loading any plugins
 vim.g.mapleader = " "
 
@@ -10,32 +13,31 @@ require("user.spell")
 -- Check if lazy.nvim is installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- 3. Load plugins from lua/plugins/
 require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
-  defaults = { lazy = true },
-  install = { colorscheme = { "tokyonight" } },
-  checker = {
-    enabled = true,   -- Automatic update checking
-    notify = false,   -- No notifications (check via :Lazy)
-    frequency = 43200, -- Check every 12 hours (in seconds)
-  },
-  rocks = { enabled = false },  -- disable luarocks support
+	spec = {
+		{ import = "plugins" },
+	},
+	defaults = { lazy = true },
+	install = { colorscheme = { "tokyonight" } },
+	checker = {
+		enabled = true, -- Automatic update checking
+		notify = false, -- No notifications (check via :Lazy)
+		frequency = 43200, -- Check every 12 hours (in seconds)
+	},
+	rocks = { enabled = false }, -- disable luarocks support
 })
 
 -- 4. Load keybindings (after lazy.nvim)
 require("keybindings")
-
