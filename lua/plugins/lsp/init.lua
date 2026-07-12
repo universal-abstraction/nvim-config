@@ -6,7 +6,6 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"mason.nvim",
 			"mason-lspconfig.nvim",
@@ -17,7 +16,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		lazy = true,
+		lazy = false,
 		dependencies = { "mason.nvim" },
 		opts = {
 			ensure_installed = { "pyright", "ruff", "clangd", "rust_analyzer", "lua_ls" },
